@@ -172,7 +172,7 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/
 
 
 
-### COMMAND TO ADD A WORKER NODE ###"
+### COMMAND TO ADD A WORKER NODE
 
 kubeadm token create --print-join-command --ttl 0
 
