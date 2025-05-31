@@ -11,9 +11,11 @@
 - Certain ports open
 
 
+
 #### Prefered OS 
 
 Ubuntu Server LTS 24.04 (because most Kubernetes development is done on Ubuntu)
+
 
 
 #### Install Ubuntu Server
@@ -25,7 +27,8 @@ reboot
 login
 sudo apt-get update && sudo apt-get upgrade -y 
 set hostname {name}  (k8s-contol-plane-1, example)
-  
+
+
 
 #### disable linux swap and remove any existing swap partitions
 
@@ -56,13 +59,16 @@ net.ipv4.ip_forward                 = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 
 
-# Apply sysctl params without reboot
+
+#### Apply sysctl params without reboot
 sudo sysctl --system
+
 
 
 #### install containerd
 
 sudo apt-get install docker.io containerd
+
 
 
 #### install containerd latest version over apt-installed-version
@@ -76,6 +82,7 @@ sudo tar xvf containerd-2.1.1-linux-amd64.tar.gz
 sudo mv bin/* /usr/bin
 
 sudo rm -rf bin containerd-2.1.1-linux-amd64.tar.gz
+
 
 
 #### containerd config
@@ -100,9 +107,11 @@ version = 2
 sudo systemctl start containerd
 
 
-### install required packages
+
+#### install required packages
 
 sudo apt-get install apt-transport-https
+
 
 
 #### install kubernetes packages
@@ -117,14 +126,18 @@ sudo apt-get install kubelet kubeadm kubernetes-cni kubectl #### control plane
 
 sudo apt-get install kubelet kubeadm kubernetes-cni #### worker
 
+
+
 #### crictl uses containerd as default
 
 echo "runtime-endpoint: unix:///run/containerd/containerd.sock" | sudo tee /etc/crictl.yaml
 
 
+
 #### kubelet should use containerd
 
 echo 'KUBELET_EXTRA_ARGS="--container-runtime-endpoint=unix:///run/containerd/containerd.sock"' | sudo tee /etc/default/kubelet > /dev/null
+
 
 
 #### start services
@@ -133,6 +146,7 @@ sudo systemctl daemon-reload
 sudo systemctl enable containerd
 sudo systemctl restart containerd
 sudo systemctl enable kubelet && systemctl start kubelet
+
 
 
 #### init k8s control plane
@@ -151,9 +165,11 @@ Alternatively, if you are the root user, you can run:
 export KUBECONFIG=/etc/kubernetes/admin.conf
 
 
+
 #### CNI (install calico network plugin ** required **)
 
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/calico.yaml
+
 
 
 #### COMMAND TO ADD A WORKER NODE ###"
@@ -161,6 +177,8 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/
 kubeadm token create --print-join-command --ttl 0
 
 
+
 #### Change roles labe
 
 kubectl label node k8s-worker-1 node.role.kubernetes.io/worker=worker / for some reason the "roles" doesn't change after this command.
+
