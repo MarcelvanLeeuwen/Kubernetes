@@ -1,7 +1,7 @@
 # WARNING: I'm still debuging this guide.
 
 
-#### Before you begin
+### Before you begin
 
 - A compatible Linux host (I use the prefered OS Ubuntu LTS 24.04 because most Kubernetes development is done on Ubuntu).
 - 2GB or more RAM
@@ -12,13 +12,13 @@
 
 
 
-#### Prefered OS 
+### Prefered OS 
 
 Ubuntu Server LTS 24.04 (because most Kubernetes development is done on Ubuntu)
 
 
 
-#### Install Ubuntu Server
+### Install Ubuntu Server
 
 install
 set static ip during installation
@@ -30,14 +30,14 @@ set hostname {name}  (k8s-contol-plane-1, example)
 
 
 
-#### disable linux swap and remove any existing swap partitions
+### disable linux swap and remove any existing swap partitions
 
 sudo swapoff -a
 sudo sed -i '/\sswap\s/ s/^\(.*\)$/#\1/g' /etc/fstab
 
 
 
-#### set required sysctl params, these persist across reboots
+### set required sysctl params, these persist across reboots
 
 sudo nano /etc/modules-load.d/containerd.conf
 
@@ -60,18 +60,18 @@ net.bridge.bridge-nf-call-ip6tables = 1
 
 
 
-#### Apply sysctl params without reboot
+### Apply sysctl params without reboot
 sudo sysctl --system
 
 
 
-#### install containerd
+### install containerd
 
 sudo apt-get install docker.io containerd
 
 
 
-#### install containerd latest version over apt-installed-version
+### install containerd latest version over apt-installed-version
 
 sudo systemctl stop containerd
 
@@ -85,7 +85,7 @@ sudo rm -rf bin containerd-2.1.1-linux-amd64.tar.gz
 
 
 
-#### containerd config
+### containerd config
 
 sudo mkdir -p /etc/containerd
 
@@ -108,13 +108,13 @@ sudo systemctl start containerd
 
 
 
-#### install required packages
+### install required packages
 
 sudo apt-get install apt-transport-https
 
 
 
-#### install kubernetes packages
+### install kubernetes packages
 
 sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.33/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
@@ -128,19 +128,19 @@ sudo apt-get install kubelet kubeadm kubernetes-cni #### worker
 
 
 
-#### crictl uses containerd as default
+### crictl uses containerd as default
 
 echo "runtime-endpoint: unix:///run/containerd/containerd.sock" | sudo tee /etc/crictl.yaml
 
 
 
-#### kubelet should use containerd
+### kubelet should use containerd
 
 echo 'KUBELET_EXTRA_ARGS="--container-runtime-endpoint=unix:///run/containerd/containerd.sock"' | sudo tee /etc/default/kubelet > /dev/null
 
 
 
-#### start services
+### start services
 
 sudo systemctl daemon-reload
 sudo systemctl enable containerd
@@ -149,7 +149,7 @@ sudo systemctl enable kubelet && systemctl start kubelet
 
 
 
-#### init k8s control plane
+### init k8s control plane
 
 sudo kubeadm init 
 
@@ -166,19 +166,19 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 
 
 
-#### CNI (install calico network plugin ** required **)
+### CNI (install calico network plugin ** required **)
 
 kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/manifests/calico.yaml
 
 
 
-#### COMMAND TO ADD A WORKER NODE ###"
+### COMMAND TO ADD A WORKER NODE ###"
 
 kubeadm token create --print-join-command --ttl 0
 
 
 
-#### Change roles labe
+### Change roles labe
 
 kubectl label node k8s-worker-1 node.role.kubernetes.io/worker=worker / for some reason the "roles" doesn't change after this command.
 
