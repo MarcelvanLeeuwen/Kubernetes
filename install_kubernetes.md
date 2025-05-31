@@ -1,9 +1,3 @@
-# WARNING: I'm still debuging this guide.
-
-[How to control cluster from client](client.md)
-
-
-
 ### Before you begin
 
 - A compatible Linux host (I use the prefered OS Ubuntu LTS 24.04 because most Kubernetes development is done on Ubuntu).
