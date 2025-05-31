@@ -1,5 +1,8 @@
 # WARNING: I'm still debuging this guide.
 
+[How to control cluster from client](client.md)
+
+
 
 ### Before you begin
 
