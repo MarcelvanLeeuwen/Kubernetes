@@ -181,19 +181,3 @@ kubeadm token create --print-join-command --ttl 0
 ### Change roles labe
 
 kubectl label node k8s-worker-1 node.role.kubernetes.io/worker=worker / for some reason the "roles" doesn't change after this command.
-
-
-
-#### Control your cluster from your client.
-
-Install Kubectl
-
-copy the config file from ~/.kube to your home directory on your client.
-
-Location Macbook:
-
-mkdir -p /Users/{username}/.kube
-
-check if it works:
-
-kubectl get nodes
