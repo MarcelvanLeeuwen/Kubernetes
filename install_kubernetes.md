@@ -52,6 +52,8 @@ set hostname {name}
 
 ```sh
 sudo swapoff -a
+```
+```sh
 sudo sed -i '/\sswap\s/ s/^\(.*\)$/#\1/g' /etc/fstab
 ```
 <br>
