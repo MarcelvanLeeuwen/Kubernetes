@@ -250,5 +250,6 @@ kubeadm token create --print-join-command --ttl 0
 <br>
 
 ```sh
-kubectl label node k8s-worker-1 node.role.kubernetes.io/worker=worker / for some reason the "roles" doesn't change after this command.
+kubectl label node k8s-worker-1 node.role.kubernetes.io/worker=worker
 ```
+<i>For some reason the "roles" doesn't change after this command</i>
