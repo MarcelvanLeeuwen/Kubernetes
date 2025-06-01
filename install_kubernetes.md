@@ -66,6 +66,8 @@ echo -e "overlay\nbr_netfilter" | sudo tee /etc/modules-load.d/containerd.conf >
 
 ```sh
 sudo modprobe overlay
+```
+```sh
 sudo modprobe br_netfilter
 ```
 <br>
