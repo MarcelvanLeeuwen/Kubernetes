@@ -125,6 +125,7 @@ sudo rm -rf bin containerd-2.1.1-linux-amd64.tar.gz
 sudo mkdir -p /etc/containerd
 ```
 <br>
+
 ```sh
 sudo tee /etc/containerd/config.toml > /dev/null <<EOF
 version = 2
