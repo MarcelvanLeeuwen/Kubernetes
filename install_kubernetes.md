@@ -250,7 +250,7 @@ kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.2/
 kubeadm token create --print-join-command --ttl 0
 ```
 <br>
-Use output to add node.
+Use output to add node. So execute this command on the node to add.
 <br>
 <br>
 

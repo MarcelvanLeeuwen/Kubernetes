@@ -1,9 +1,11 @@
-<H1 align="center">WARNING: I'm still debuging this guide</h1>
+<H1 align="center">WARNING: this is a work in progress, so it can contain errors</h1>
 
 ![Kubernetes](images/Kubernetes-logo.png)
 
 
 [Install Kubernetes bare metal](install_kubernetes.md)
 
-[How to control Kubernetes cluster from client](client.md)
+[Connect old k8s-worker to new control plane](tips_tricks.md)
+
+[How to control Kubernetes cluster from client](tips_tricks.md)
 
