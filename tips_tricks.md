@@ -36,27 +36,113 @@ Use output to add node. So execute this command on the node to add.
 <br>
 <br>
 
-### Control your cluster from your client  **** CHECK ****
+
+# Install Bash 5.x, Bash Completion, KubeCtl on MacOS
 <br>
-Install Kubectl on your client --> add how-to
-<br>
-<br>
-copy the config file from ~/.kube to your home directory on your client.
-<br>
-<br>
-Location Macbook:
-<br>
+
+#### Install HomeBrew
 <br>
 
 ```sh
-mkdir -p /Users/{username}/.kube
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 <br>
+
+add the following to
 <br>
-check if it works:
+```sh
+nano ~/.bash_profile
+```
+
+```sh
+#Homebrew pad toevoegen (voor ARM Macs = Apple Silicon)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
 <br>
+
+#### Install Bash
 <br>
 
 ```sh
-kubectl get nodes
+brew install bash
+```
+<br>
+
+Set Bash 5.x as default
+<br>
+
+```ssh
+sudo bash -c 'echo /opt/homebrew/bin/bash >> /etc/shells'
+```
+
+```sh
+chsh -s /opt/homebrew/bin/bash
+```
+<br>
+
+Check if it is default
+<br>
+```sh
+echo $SHELL
+```
+
+```sh
+bash --version
+```
+
+```sh
+which bash
+```
+<br>
+Open and close terminal to see if everything keeps working
+<br>
+
+<br>
+
+#### Install Bash Completion and Kubectl Completion 
+<br>
+
+```sh
+brew install auto-completion@2
+```
+<br>
+
+add the following to
+<br>
+```sh
+nano ~/.bash_profile
+```
+
+```sh
+# bash-completion v2
+if [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+  source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+fi
+
+# kubectl completion
+source <(kubectl completion bash)
+```
+<br>
+
+#### Install Kubectl
+<br>
+
+```sh
+brew install kubectl
+```
+<br>
+
+#### complete ~/.bash_profile
+
+```sh
+# Homebrew pad toevoegen (voor ARM Macs = Apple Silicon)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# bash-completion v2
+if [ -f "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+  source "$(brew --prefix)/etc/profile.d/bash_completion.sh"
+fi
+
+# kubectl completion
+source <(kubectl completion bash)
 ```
