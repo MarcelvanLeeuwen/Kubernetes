@@ -7,5 +7,5 @@
 
 [Connect old k8s-worker to new control plane](tips_tricks.md)
 
-[How to control Kubernetes cluster from client](tips_tricks.md)
+[Tips & Tricks](tips_tricks.md)
 
