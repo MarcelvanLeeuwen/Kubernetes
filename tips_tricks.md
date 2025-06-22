@@ -40,7 +40,7 @@ Use output to add node. So execute this command on the node to add.
 ### Install Bash 5.x, Bash Completion, KubeCtl on MacOS
 <br>
 
-#### Install HomeBrew
+##### Install HomeBrew
 <br>
 
 ```sh
@@ -60,7 +60,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 <br>
 
-#### Install Bash
+##### Install Bash
 <br>
 
 ```sh
@@ -99,7 +99,7 @@ Open and close terminal to see if everything keeps working
 
 <br>
 
-#### Install Bash Completion and Kubectl Completion 
+##### Install Bash Completion and Kubectl Completion 
 <br>
 
 ```sh
@@ -124,7 +124,7 @@ source <(kubectl completion bash)
 ```
 <br>
 
-#### Install Kubectl
+##### Install Kubectl
 <br>
 
 ```sh
@@ -132,7 +132,7 @@ brew install kubectl
 ```
 <br>
 
-#### complete ~/.bash_profile
+##### complete ~/.bash_profile
 
 ```sh
 # Homebrew pad toevoegen (voor ARM Macs = Apple Silicon)
@@ -145,4 +145,25 @@ fi
 
 # kubectl completion
 source <(kubectl completion bash)
+```
+<br>
+
+### Show ETCD options
+
+```sh
+sudo cat /etc/kubernetes/manifests/etcd.yaml
+```
+<br>
+
+### Show Kube-scheduler options
+
+```sh
+sudo cat /etc/kubernetes/manifests/kube-scheduler.yaml
+```
+<br>
+
+### Show Kube-controller options
+
+```sh
+sudo cat /etc/kubernetes/manifests/kube-controller-manager.yaml 
 ```
