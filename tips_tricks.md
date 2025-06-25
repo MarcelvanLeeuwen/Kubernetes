@@ -148,6 +148,16 @@ source <(kubectl completion bash)
 ```
 <br>
 
+### Add an alias to shorten the kubectl command
+
+add the folowing to ~/.bashrc
+
+```sh
+alias k='kubectl'
+```
+<br>
+
+
 ### Show ETCD options
 
 ```sh
@@ -166,4 +176,11 @@ sudo cat /etc/kubernetes/manifests/kube-scheduler.yaml
 
 ```sh
 sudo cat /etc/kubernetes/manifests/kube-controller-manager.yaml 
+```
+<br>
+
+### Check if Kubelet is ruuning and show options
+
+```sh
+ps -aux | grep kubelet
 ```
