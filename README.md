@@ -7,5 +7,7 @@
 
 [Connect old k8s-worker to new control plane](tips_tricks.md)
 
+[Cheat sheet](cheat_sheet.md)
+
 [Tips & Tricks](tips_tricks.md)
 
