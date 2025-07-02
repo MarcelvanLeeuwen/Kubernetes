@@ -1,9 +1,15 @@
 # Kubectl
 
-kubectl config get-contexts --> available clusters
-
-kubectl config use-context {cluster} --> switch to cluster
-
+<table>
+    <tr>
+        <th>kubectl config get-contexts</th>
+        <th>available clusters</th>
+    </tr>
+    <tr>
+        <th>kubectl config use-context {cluster}</th>
+        <th>switch to cluster</th>
+    </tr>
+ </table>   
 kubectl run nginx —image=nginx
 
 kubectl run nginx —image=nginx --dry-run=client -o yaml --> outputs the yaml definition
@@ -29,3 +35,5 @@ kubectl create -f {filename.yaml} --> this can be services, replicasets, deploym
 kubectl scale —replicas=6 -f {file.yaml} --> updates the number of replicas / is temporary because the yaml definition is not update
 
 Kubectl edit replicaset {name} --> you can edit the amount of replicas this way too, but it is temporary. Edit yaml file if you want to make it persistent.
+
+</table>
