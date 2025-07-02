@@ -1,4 +1,4 @@
-#### Kubectl
+# Kubectl
 
 kubectl config get-contexts --> available clusters
 
