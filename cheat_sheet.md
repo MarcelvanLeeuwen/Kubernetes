@@ -2,7 +2,7 @@
 
 <table>
     <tr>
-        <th style="width: 700px;">Command</th>
+        <th style="width: 1000px;">Command</th>
         <th style="width: 500px;">Explanation</th>
     <tr>
         <td>kubectl config get-contexts</td>
