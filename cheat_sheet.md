@@ -1,23 +1,23 @@
 # Kubectl commands
 
 
-lists all available contexts
+- lists all available contexts
 ```sh
 kubectl config get-contexts
 ```
-switches your active Kubernetes context
+- switches your active Kubernetes context
 ```sh
 kubectl config use-context {cluster}
 ```
-sets a default namespace
+- sets a default namespace
 ```sh
 kubectl config set-context $(kubectl config current context) —namespace={namespace}
 ```
-creates a single Pod
+- creates a single Pod
 ```sh
 kubectl run nginx —image={image}
 ```
- create’s a kubernetes resource from a yaml file
+ - create’s a kubernetes resource from a yaml file
  ```sh
  kubectl create -f {filename.yaml}
  ```
